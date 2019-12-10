@@ -1,0 +1,23 @@
+proc  RandomMove(int $count, float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ)
+{
+    string $currentSelection[] = `ls -sl`;        
+    
+    float $randX = `rand $minX $maxX`;
+    float $randY = `rand $minX $maxY`;
+    float $randZ = `rand $minX $maxZ`; 
+
+    for($iterator = 0; $iterator < ($count); $iterator++)
+    {
+      string $copies[] = `duplicate ($currentSelection[0])`;  
+       
+       $randX = `rand $minX $maxX`;
+       $randY = `rand $minY $maxY`;
+       $randZ = `rand $minZ $maxZ`; 
+       move -absolute ($randX) ($randY)($randZ) $copies[0]; 
+    }  
+}
+RandomMove(300, 1, 20, 1, 3, 40, 20);
+
+
+
+       
